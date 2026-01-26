@@ -20,6 +20,7 @@ interface Recommendation {
     };
     bestFor: string;
     limitations: string[];
+    expertNote?: string;
 }
 
 interface RecommendationsGridProps {
@@ -204,6 +205,19 @@ export default function RecommendationsGrid({
 
                                 {/* Specs Expandable */}
                                 <div className="relative z-10 border-t-2 border-[#1a1a20] pt-6 mb-8">
+                                    {/* Expert Note - New Feature */}
+                                    {rec.expertNote && (
+                                        <div className="mb-6 p-4 rounded-xl bg-[#16161a] border border-white/5 flex gap-3">
+                                            <div className="mt-0.5 min-w-[1.25rem]">
+                                                <span className="text-lg">💡</span>
+                                            </div>
+                                            <div>
+                                                <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-1">Expert Insight</h4>
+                                                <p className="text-sm text-gray-300 leading-relaxed italic">"{rec.expertNote}"</p>
+                                            </div>
+                                        </div>
+                                    )}
+
                                     <button
                                         onClick={() => toggleCard(index)}
                                         className="flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-white transition-colors uppercase tracking-wider mb-4 group/btn"

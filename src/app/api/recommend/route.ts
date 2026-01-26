@@ -41,7 +41,8 @@ Output format must be STRICT JSON:
         "weight": "..."
       },
       "bestFor": "Plain-language description",
-      "limitations": ["1-2 honest limitations"]
+      "limitations": ["1-2 honest limitations"],
+      "expertNote": "A helpful 'Keep in Mind' note. Example: 'Great screen, but heavy to carry.'"
     },
     {
       "tier": "Best Value",
@@ -51,7 +52,8 @@ Output format must be STRICT JSON:
       "whyBest": ["..."],
       "specs": {...},
       "bestFor": "...",
-      "limitations": ["..."]
+      "limitations": ["..."],
+      "expertNote": "..."
     },
     {
       "tier": "Premium Choice",
@@ -61,7 +63,8 @@ Output format must be STRICT JSON:
       "whyBest": ["..."],
       "specs": {...},
       "bestFor": "...",
-      "limitations": ["..."]
+      "limitations": ["..."],
+      "expertNote": "..."
     }
   ]
 }
