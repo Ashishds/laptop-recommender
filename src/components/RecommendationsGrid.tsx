@@ -111,10 +111,15 @@ export default function RecommendationsGrid({
         }
     };
 
-    const generateAffiliateLinks = (laptopName: string) => ({
-        amazon: `https://www.amazon.in/s?k=${encodeURIComponent(laptopName)}&tag=youraffiliateid`,
-        flipkart: `https://www.flipkart.com/search?q=${encodeURIComponent(laptopName)}&affid=youraffid`,
-    });
+    const generateAffiliateLinks = (laptopName: string) => {
+        const amazonTag = process.env.NEXT_PUBLIC_AMAZON_TAG || "youraffiliateid"; // e.g. "pickmylaptop-21"
+        const flipkartAffId = process.env.NEXT_PUBLIC_FLIPKART_TAG || "youraffid"; // e.g. "pickmylaptop"
+
+        return {
+            amazon: `https://www.amazon.in/s?k=${encodeURIComponent(laptopName)}&tag=${amazonTag}`,
+            flipkart: `https://www.flipkart.com/search?q=${encodeURIComponent(laptopName)}&affid=${flipkartAffId}`,
+        };
+    };
 
     return (
         <div className="w-full max-w-[1400px] mx-auto px-6">
