@@ -299,6 +299,16 @@ export default function RecommendationsGrid({
                     Start Over
                 </button>
             </motion.div>
+
+            {/* Disclaimer */}
+            <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="text-center text-[10px] text-gray-600 pb-8"
+            >
+                Disclosure: We may earn a commission from purchases made through affiliate links.
+            </motion.p>
         </div>
     );
 }
