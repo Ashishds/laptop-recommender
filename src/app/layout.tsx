@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png", // We'll need to ensure this exists or use a placeholder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "PickMyLaptop Preview",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PickMyLaptop - Find Best Laptops in Seconds",
     description: "Get 3 personalized laptop recommendations instantly based on your budget and needs.",
-    images: ["/og-image.png"], // Same here
+    images: ["/og-image.png"],
   },
   verification: {
     google: "process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION", // Placeholder for actual code
@@ -66,8 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
-        <div className="gradient-bg" />
+      <body className={`${inter.variable} antialiased bg-gradient-premium`}>
         {children}
       </body>
     </html>

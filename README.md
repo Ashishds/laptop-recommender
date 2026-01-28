@@ -1,6 +1,6 @@
-# LaptopFinder AI 🎯
+# PickMyLaptop AI - Find Your Perfect Laptop (India)
 
-An AI-powered laptop recommendation web application that helps users find their perfect laptop based on their needs, budget, and preferences.
+PickMyLaptop AI is a modern web application that helps users find the best laptops based on their specific needs, budget, and preferences. It uses AI to analyze user inputs and provide the top 3 recommendations with detailed specs, expert insights, and live affiliate links.
 
 ![LaptopFinder AI](https://via.placeholder.com/800x400?text=LaptopFinder+AI)
 

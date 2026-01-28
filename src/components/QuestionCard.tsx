@@ -35,8 +35,8 @@ export default function QuestionCard({
             className="w-full"
         >
             {/* Question */}
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#E5E7EB] mb-3 text-center leading-tight">
-                {question.question}
+            <h2 className="text-2xl md:text-4xl font-extrabold mb-3 text-center leading-tight">
+                <span className="text-gradient">{question.question}</span>
             </h2>
 
             {/* Subtitle */}

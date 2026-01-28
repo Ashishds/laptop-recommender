@@ -28,9 +28,9 @@ export default function OptionButton({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
             onClick={onSelect}
-            className={`w-full p-4 rounded-xl border text-left transition-all duration-150 ${isSelected
-                    ? "border-indigo-500 bg-indigo-500/10"
-                    : "border-[#1F2937] bg-[#161E2E] hover:border-[#374151] hover:bg-[#1a2436]"
+            className={`w-full p-4 rounded-xl border text-left transition-all duration-300 glass glass-hover ${isSelected
+                ? "border-indigo-500 bg-indigo-500/10 shadow-lg shadow-indigo-500/10"
+                : "border-white/10"
                 }`}
         >
             <div className="flex items-center gap-4">
@@ -52,8 +52,8 @@ export default function OptionButton({
                 {/* Radio indicator */}
                 <div
                     className={`w-5 h-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors ${isSelected
-                            ? "border-indigo-500 bg-indigo-500"
-                            : "border-[#374151]"
+                        ? "border-indigo-500 bg-indigo-500"
+                        : "border-[#374151]"
                         }`}
                 >
                     {isSelected && (

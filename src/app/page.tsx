@@ -8,7 +8,7 @@ import QuestionCard from "@/components/QuestionCard";
 import LoadingScreen from "@/components/LoadingScreen";
 import RecommendationsGrid from "@/components/RecommendationsGrid";
 import ShareButtons from "@/components/ShareButtons";
-import { LaptopFinderLogo, HeroIllustration } from "@/components/Icons";
+import Image from "next/image";
 
 type AppState = "welcome" | "questionnaire" | "loading" | "result" | "error";
 
@@ -98,14 +98,21 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0B1020]">
       {/* Header */}
-      <header className="w-full py-4 px-6 flex items-center justify-between border-b border-[#1F2937] bg-[#0B1020]/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="w-full py-4 px-6 flex items-center justify-between border-b border-white/10 bg-black/20 backdrop-blur-md sticky top-0 z-50">
         <div className="flex items-center gap-3">
-          <LaptopFinderLogo className="w-10 h-10" />
+          <div className="relative w-10 h-10">
+            <Image
+              src="/images/logo.png"
+              alt="PickMyLaptop Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
           <div className="flex flex-col">
-            <span className="font-bold text-lg text-[#E5E7EB] leading-tight">
+            <span className="font-bold text-lg text-white leading-tight tracking-tight">
               PickMy<span className="text-indigo-400">Laptop</span>
             </span>
-            <span className="text-[10px] text-[#6B7280] tracking-wider">POWERED BY AI</span>
+            <span className="text-[10px] text-indigo-400 font-bold tracking-[0.2em]">POWERED BY AI</span>
           </div>
         </div>
 
@@ -135,22 +142,30 @@ export default function Home() {
               transition={{ duration: 0.3 }}
               className="text-center max-w-2xl mx-auto"
             >
-              {/* Hero Illustration */}
+              {/* New Hero Image */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="mb-8"
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="mb-8 relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-2xl shadow-indigo-500/20"
               >
-                <HeroIllustration className="w-72 h-52 mx-auto" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent z-10" />
+                <Image
+                  src="/images/hero-banner.png"
+                  alt="Modern futuristic laptop"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </motion.div>
 
-              <h1 className="text-4xl md:text-5xl font-bold text-[#E5E7EB] mb-4 tracking-tight">
-                Find Your Perfect Laptop
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-[1.1]">
+                <span className="text-white">Find Your Perfect </span>
+                <span className="text-gradient">Laptop</span>
               </h1>
 
-              <p className="text-lg text-[#9CA3AF] mb-10 leading-relaxed max-w-lg mx-auto">
-                Answer a few simple questions and our AI will recommend the top 3 laptops that match your needs and budget.
+              <p className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-xl mx-auto">
+                No more confusing specs. Our AI finds the top 3 laptops specifically tailored for your work, budget, and lifestyle.
               </p>
 
               {/* Features */}
@@ -175,9 +190,12 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 onClick={handleStart}
-                className="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-lg transition-colors"
+                className="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg transition-all shadow-lg shadow-indigo-500/25 hover:scale-105 active:scale-95 flex items-center gap-2 mx-auto"
               >
-                Get Started
+                Start AI Analysis
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </motion.button>
 
               <p className="mt-8 text-[#6B7280] text-sm">
@@ -266,12 +284,18 @@ export default function Home() {
             <ShareButtons />
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#6B7280]">
-            <div className="flex items-center gap-2">
-              <LaptopFinderLogo className="w-5 h-5" />
-              <span>© 2025 PickMyLaptop</span>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-slate-500">
+            <div className="flex items-center gap-3">
+              <div className="relative w-6 h-6 opacity-80">
+                <Image src="/images/logo.png" alt="PickMyLaptop" fill className="object-contain" />
+              </div>
+              <span className="font-semibold text-slate-400">© 2025 PickMyLaptop</span>
             </div>
-            <span>Prices are estimates • Check seller websites for actual prices</span>
+            <div className="flex gap-6">
+              <span className="hover:text-slate-300 transition-colors cursor-default">Privacy</span>
+              <span className="hover:text-slate-300 transition-colors cursor-default">Terms</span>
+            </div>
+            <span className="text-xs italic">Prices are estimates • Check seller for final price</span>
           </div>
         </div>
       </footer>

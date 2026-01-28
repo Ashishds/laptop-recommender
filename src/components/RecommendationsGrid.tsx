@@ -136,16 +136,17 @@ export default function RecommendationsGrid({
                     </span>
                     AI Analysis Complete
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-                    Perfect Matches Found
+                <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+                    <span className="text-white">Expert </span>
+                    <span className="text-gradient">Matches Found</span>
                 </h1>
-                <p className="text-gray-400 text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-                    We've analyzed multiple options to find these top 3 laptops tailored to your specific needs.
+                <p className="text-slate-400 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+                    PickMyLaptop AI analyzed thousands of combinations to find these top 3 recommendations tailored just for you.
                 </p>
 
                 <button
                     onClick={expandedCards.size === 3 ? collapseAll : expandAll}
-                    className="text-sm text-gray-500 hover:text-white transition-colors underline underline-offset-4"
+                    className="text-sm text-slate-500 hover:text-white transition-colors underline underline-offset-4 font-medium"
                 >
                     {expandedCards.size === 3 ? "Collapse all details" : "Expand all details"}
                 </button>
@@ -168,7 +169,7 @@ export default function RecommendationsGrid({
                             className={`group relative h-full flex ${isRecommended ? 'lg:scale-105 lg:-mt-4 z-10' : ''}`}
                         >
                             {/* Card Container */}
-                            <div className={`w-full flex flex-col bg-[#0f0f12] border-2 rounded-[2rem] p-8 transition-all duration-300 relative overflow-hidden ${config.heavyBorder} ${isRecommended ? 'shadow-2xl shadow-black/60 scale-[1.01]' : 'shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-black/50 hover:scale-[1.01]'}`}>
+                            <div className={`w-full flex flex-col glass rounded-[2rem] p-8 transition-all duration-500 relative overflow-hidden card-shadow ${isRecommended ? 'border-indigo-500/30' : 'border-white/10'}`}>
 
                                 {/* Inner Glow Depth Effect */}
                                 <div className={`absolute inset-0 pointer-events-none rounded-[2rem] ${config.innerGlow}`} />
