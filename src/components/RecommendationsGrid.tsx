@@ -55,7 +55,34 @@ export default function RecommendationsGrid({
         setExpandedCards(new Set());
     };
 
-    const getTierConfig = (tier: string) => {
+    const getTierConfig = (tier: string, laptopName: string) => {
+        // Simple deterministic hash to pick a variety image based on laptop name
+        const getVariationIndex = (name: string, poolSize: number) => {
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) {
+                hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            return Math.abs(hash) % poolSize;
+        };
+
+        const budgetImages = [
+            "/images/budget-laptop.png",
+            "/images/budget-laptop-2.png",
+            "/images/budget-laptop-3.png",
+        ];
+
+        const valueImages = [
+            "/images/value-laptop.png",
+            "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1517336714460-d463870624a1?auto=format&fit=crop&q=80&w=800",
+        ];
+
+        const premiumImages = [
+            "/images/premium-laptop.png",
+            "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=800",
+        ];
+
         switch (tier) {
             case "Budget Pick":
                 return {
@@ -65,7 +92,7 @@ export default function RecommendationsGrid({
                     innerGlow: "shadow-[inset_0_0_20px_rgba(16,185,129,0.05)]",
                     badge: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.2)]",
                     glow: "bg-emerald-500/5",
-                    image: "/images/budget-laptop.png",
+                    image: budgetImages[getVariationIndex(laptopName, budgetImages.length)],
                     icon: (
                         <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -80,7 +107,7 @@ export default function RecommendationsGrid({
                     innerGlow: "shadow-[inset_0_0_20px_rgba(245,158,11,0.05)]",
                     badge: "bg-amber-500/20 text-amber-400 border border-amber-500/30 shadow-[0_0_10px_rgba(245,158,11,0.2)]",
                     glow: "bg-amber-500/5",
-                    image: "/images/value-laptop.png",
+                    image: valueImages[getVariationIndex(laptopName, valueImages.length)],
                     icon: (
                         <svg className="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -95,7 +122,7 @@ export default function RecommendationsGrid({
                     innerGlow: "shadow-[inset_0_0_20px_rgba(99,102,241,0.05)]",
                     badge: "bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 shadow-[0_0_10px_rgba(99,102,241,0.2)]",
                     glow: "bg-indigo-500/5",
-                    image: "/images/premium-laptop.png",
+                    image: premiumImages[getVariationIndex(laptopName, premiumImages.length)],
                     icon: (
                         <svg className="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -110,6 +137,7 @@ export default function RecommendationsGrid({
                     innerGlow: "",
                     badge: "bg-gray-800 text-gray-300",
                     glow: "bg-blue-500/5",
+                    image: "/images/budget-laptop.png",
                     icon: null
                 };
         }
@@ -159,7 +187,7 @@ export default function RecommendationsGrid({
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                 {recommendations.map((rec, index) => {
-                    const config = getTierConfig(rec.tier);
+                    const config = getTierConfig(rec.tier, rec.laptopName);
                     const links = generateAffiliateLinks(rec.laptopName);
                     const isExpanded = expandedCards.has(index);
                     const isRecommended = rec.tier === "Best Value";
