@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { LoadingLaptop } from "./Icons";
 
 export default function LoadingScreen() {
     return (
@@ -11,30 +11,57 @@ export default function LoadingScreen() {
             exit={{ opacity: 0 }}
             className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4"
         >
-            {/* AI brain / Analysis illustration */}
+            {/* Animated laptop illustration */}
             <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
                 animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: 1,
+                    y: [0, -10, 0],
                 }}
                 transition={{
-                    duration: 4,
+                    duration: 2,
                     repeat: Infinity,
                     ease: "easeInOut",
                 }}
-                className="relative w-64 h-64 mb-10"
+                className="mb-8"
             >
-                <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-[80px] animate-pulse" />
-                <Image
-                    src="/images/loading-modern.png"
-                    alt="AI Analyzing"
-                    fill
-                    className="object-contain relative z-10 drop-shadow-[0_0_50px_rgba(99,102,241,0.3)]"
-                    priority
-                />
+                <LoadingLaptop className="w-40 h-32" />
             </motion.div>
 
+            {/* Glowing orb animation */}
+            <div className="relative mb-8">
+                <motion.div
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0.8, 0.5],
+                    }}
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                    className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-xl"
+                    style={{ width: 100, height: 100, left: -10, top: -10 }}
+                />
+                <div className="relative w-20 h-20 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/50">
+                    <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    >
+                        <svg
+                            className="w-10 h-10 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                            />
+                        </svg>
+                    </motion.div>
+                </div>
+            </div>
 
             {/* Text */}
             <motion.h2

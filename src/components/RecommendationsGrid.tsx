@@ -74,13 +74,13 @@ export default function RecommendationsGrid({
         const valueImages = [
             "/images/value-laptop.png",
             "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1517336714460-d463870624a1?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&q=80&w=800",
         ];
 
         const premiumImages = [
             "/images/premium-laptop.png",
             "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&q=80&w=800",
         ];
 
         switch (tier) {
