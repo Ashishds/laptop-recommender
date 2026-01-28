@@ -13,14 +13,14 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.pickmylaptop.i
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "LaptopFinder AI - Find Your Perfect Laptop (India)",
-    template: "%s | LaptopFinder AI",
+    default: "PickMyLaptop - Find Your Perfect Laptop (India)",
+    template: "%s | PickMyLaptop",
   },
   description: "Stop confused searching! Our AI analyzes your needs to recommend the top 3 best laptops for students, professionals, and gamers in India.",
-  keywords: ["laptop finder", "best laptop india", "AI laptop recommendation", "student laptop", "gaming laptop", "laptop buying guide", "best laptop under 50000"],
-  authors: [{ name: "LaptopFinder AI" }],
-  creator: "LaptopFinder AI",
-  publisher: "LaptopFinder AI",
+  keywords: ["pick my laptop", "laptop finder", "best laptop india", "AI laptop recommendation", "student laptop", "gaming laptop", "laptop buying guide", "best laptop under 50000"],
+  authors: [{ name: "PickMyLaptop" }],
+  creator: "PickMyLaptop",
+  publisher: "PickMyLaptop",
   robots: {
     index: true,
     follow: true,
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "LaptopFinder AI - Find Best Laptops in Seconds",
+    title: "PickMyLaptop - Find Best Laptops in Seconds",
     description: "Don't waste days watching reviews. Get 3 personalized laptop recommendations instantly based on your budget and needs.",
     url: SITE_URL,
-    siteName: "LaptopFinder AI",
+    siteName: "PickMyLaptop",
     locale: "en_IN",
     type: "website",
     images: [
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
         url: "/og-image.png", // We'll need to ensure this exists or use a placeholder
         width: 1200,
         height: 630,
-        alt: "LaptopFinder AI Preview",
+        alt: "PickMyLaptop Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LaptopFinder AI - Find Best Laptops in Seconds",
+    title: "PickMyLaptop - Find Best Laptops in Seconds",
     description: "Get 3 personalized laptop recommendations instantly based on your budget and needs.",
     images: ["/og-image.png"], // Same here
   },

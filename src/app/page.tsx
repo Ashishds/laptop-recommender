@@ -103,7 +103,7 @@ export default function Home() {
           <LaptopFinderLogo className="w-10 h-10" />
           <div className="flex flex-col">
             <span className="font-bold text-lg text-[#E5E7EB] leading-tight">
-              Laptop<span className="text-indigo-400">Finder</span>
+              PickMy<span className="text-indigo-400">Laptop</span>
             </span>
             <span className="text-[10px] text-[#6B7280] tracking-wider">POWERED BY AI</span>
           </div>
@@ -269,7 +269,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#6B7280]">
             <div className="flex items-center gap-2">
               <LaptopFinderLogo className="w-5 h-5" />
-              <span>© 2025 LaptopFinder AI</span>
+              <span>© 2025 PickMyLaptop</span>
             </div>
             <span>Prices are estimates • Check seller websites for actual prices</span>
           </div>

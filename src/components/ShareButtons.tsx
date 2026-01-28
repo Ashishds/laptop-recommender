@@ -8,8 +8,8 @@ interface ShareButtonsProps {
 }
 
 export default function ShareButtons({
-    url = "https://laptopfinder.ai",
-    title = "Find your perfect laptop with AI! LaptopFinder AI helped me find the best laptop for my needs.",
+    url = "https://www.pickmylaptop.in",
+    title = "Find your perfect laptop with AI! PickMyLaptop helped me find the best laptop for my needs.",
 }: ShareButtonsProps) {
     const encodedUrl = encodeURIComponent(url);
     const encodedTitle = encodeURIComponent(title);
