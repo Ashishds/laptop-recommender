@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 interface Recommendation {
     tier: string;
@@ -64,6 +65,7 @@ export default function RecommendationsGrid({
                     innerGlow: "shadow-[inset_0_0_20px_rgba(16,185,129,0.05)]",
                     badge: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.2)]",
                     glow: "bg-emerald-500/5",
+                    image: "/images/budget-laptop.png",
                     icon: (
                         <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -78,6 +80,7 @@ export default function RecommendationsGrid({
                     innerGlow: "shadow-[inset_0_0_20px_rgba(245,158,11,0.05)]",
                     badge: "bg-amber-500/20 text-amber-400 border border-amber-500/30 shadow-[0_0_10px_rgba(245,158,11,0.2)]",
                     glow: "bg-amber-500/5",
+                    image: "/images/value-laptop.png",
                     icon: (
                         <svg className="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -92,6 +95,7 @@ export default function RecommendationsGrid({
                     innerGlow: "shadow-[inset_0_0_20px_rgba(99,102,241,0.05)]",
                     badge: "bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 shadow-[0_0_10px_rgba(99,102,241,0.2)]",
                     glow: "bg-indigo-500/5",
+                    image: "/images/premium-laptop.png",
                     icon: (
                         <svg className="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -181,17 +185,31 @@ export default function RecommendationsGrid({
                                     </span>
                                 </div>
 
-                                {/* Header (Icon + Title) */}
-                                <div className="relative z-10 mb-8">
-                                    <div className={`w-14 h-14 rounded-2xl bg-[#131316] flex items-center justify-center border border-white/5 mb-6 shadow-inner`}>
-                                        {config.icon}
+                                {/* Product Image */}
+                                {config.image && (
+                                    <div className="relative w-full h-48 mb-6 rounded-2xl overflow-hidden border border-white/5 shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
+                                        <Image
+                                            src={config.image}
+                                            alt={rec.laptopName}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
+                                        {/* Icon Overlay */}
+                                        <div className="absolute bottom-4 left-4 z-20 w-10 h-10 rounded-xl glass flex items-center justify-center border border-white/10 shadow-lg">
+                                            {config.icon}
+                                        </div>
                                     </div>
+                                )}
 
+                                {/* Product Info Content */}
+                                <div className="relative z-10 mb-8">
                                     <h3 className="text-2xl font-bold text-white mb-4 leading-snug min-h-[4rem]">
                                         {rec.laptopName}
                                     </h3>
 
-                                    <p className="text-sm text-gray-400 leading-relaxed min-h-[3rem] line-clamp-2">
+                                    <p className="text-sm text-slate-400 leading-relaxed min-h-[3rem] line-clamp-2">
                                         {rec.bestFor}
                                     </p>
                                 </div>
@@ -310,6 +328,6 @@ export default function RecommendationsGrid({
             >
                 Disclosure: We may earn a commission from purchases made through affiliate links.
             </motion.p>
-        </div>
+        </div >
     );
 }
